@@ -7,31 +7,39 @@ import {
 } from 'react-native';
 
 export default class DemoList extends Component {
-  rows() {
-    return [
-      "row 1",
-      "row 2",
-      "row 3",
-      "row 4",
-      "row 5",
-    ];
-  }
+  constructor(props) {
+    super(props);
 
-  constructor() {
-    super();
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    const rows = this.rows();
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2}
+    );
+
+    const foo = [
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+    ];
+
+    const stuff = props.foo ? props.foo : foo;
     this.state = {
-      dataSource: ds.cloneWithRows(rows),
+      dataSource: ds.cloneWithRows(stuff),
     };
   }
 
   render() {
     return (
       <ListView
-          style={styles.listView}
-          dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text style={styles.rowItem}>{rowData}</Text>}
+        style={styles.listView}
+        dataSource={this.state.dataSource}
+        enableEmptySections={true}
+        renderRow={
+          (rowData) => {
+            const rd = rowData ? rowData : "foo"
+            return <Text style={styles.rowItem}>{rd}</Text>
+          }
+        }
       />
     );
   }
