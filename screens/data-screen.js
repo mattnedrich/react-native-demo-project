@@ -33,8 +33,8 @@ export default class DataScreen extends Component {
       .then((json) => {
         this.setState({
           loading: false,
-          message: json.data[0].url,
-          gifLinks: json.data.map((x) => {return x.url;}),
+          message: "Done loading!",
+          gifLinks: json.data.map((x) => {return x.images.fixed_height.url;}),
         });
       })
       .catch((error) => {
@@ -47,23 +47,17 @@ export default class DataScreen extends Component {
 
   render() {
     if (this.state.loading) {
-      const loadingMarkup = (
-        <Text style={styles.welcome}>
-          { this.state.message }
-        </Text>
-      );
       return (
         <View style={styles.container}>
-          { loadingMarkup }
+          <Text style={styles.welcome}>
+            { this.state.message }
+          </Text>
         </View>
       );
     } else {
-      const dataMarkup = (
-        <DemoList foo={this.state.gifLinks} />
-      );
       return (
         <View style={styles.container}>
-          { dataMarkup }
+          <DemoList foo={this.state.gifLinks} />
         </View>
       );
     }

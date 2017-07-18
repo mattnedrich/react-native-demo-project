@@ -3,7 +3,9 @@ import {
   ListView,
   StyleSheet,
   Text,
-  View
+  View,
+  Image,
+  Dimensions
 } from 'react-native';
 
 export default class DemoList extends Component {
@@ -15,11 +17,11 @@ export default class DemoList extends Component {
     );
 
     const foo = [
-      "A",
-      "A",
-      "A",
-      "A",
-      "A",
+      "Item A",
+      "Item B",
+      "Item C",
+      "Item D",
+      "Item E",
     ];
 
     const stuff = props.foo ? props.foo : foo;
@@ -29,6 +31,7 @@ export default class DemoList extends Component {
   }
 
   render() {
+ const width = Dimensions.get('window').width; //full width
     return (
       <ListView
         style={styles.listView}
@@ -36,8 +39,14 @@ export default class DemoList extends Component {
         enableEmptySections={true}
         renderRow={
           (rowData) => {
-            const rd = rowData ? rowData : "foo"
-            return <Text style={styles.rowItem}>{rd}</Text>
+            return (
+              <View>
+                <Image
+                    style={{width: 100, height: 100}}
+                    source={{uri: rowData}}
+                />
+              </View>
+            );
           }
         }
       />
@@ -51,6 +60,13 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   listView: {
-    marginTop: 50,
-  }
+    marginTop: 0,
+  },
+  canvas: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+  },
 });
