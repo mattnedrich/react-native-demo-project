@@ -33,14 +33,16 @@ export default class DataScreen extends Component {
       .then((json) => {
         this.setState({
           loading: false,
-          message: "Done loading!",
-          gifLinks: json.data.map((x) => {return x.images.fixed_height.url;}),
+          message: "Loaded!",
+          gifLinks: json.data.map((gifResult) => {
+            return gifResult.images.fixed_height.url;
+          }),
         });
       })
       .catch((error) => {
         this.setState({
           loading: false,
-          message: error.message + GIPHY_API_KEY
+          message: error.message
         });
       })
   }
@@ -49,9 +51,7 @@ export default class DataScreen extends Component {
     if (this.state.loading) {
       return (
         <View style={styles.container}>
-          <Text>
-            { this.state.message }
-          </Text>
+          <Text> { this.state.message } </Text>
         </View>
       );
     } else {
