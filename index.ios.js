@@ -4,7 +4,6 @@
  * @flow
  */
 
-import { GIPHY_API_KEY } from 'react-native-dotenv';
 import { setupApplication } from './screens/main';
 
 setupApplication();

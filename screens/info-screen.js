@@ -10,7 +10,7 @@ export default class InfoScreen extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Info Screen
+          Info Screen 234234
         </Text>
       </View>
     );
