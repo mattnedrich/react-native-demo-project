@@ -4,9 +4,11 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
-  Dimensions
+  Image
 } from 'react-native';
+
+const Dimensions = require('Dimensions');
+const window = Dimensions.get('window');
 
 export default class DemoList extends Component {
   constructor(props) {
@@ -16,17 +18,8 @@ export default class DemoList extends Component {
       rowHasChanged: (r1, r2) => r1 !== r2}
     );
 
-    const foo = [
-      "Item A",
-      "Item B",
-      "Item C",
-      "Item D",
-      "Item E",
-    ];
-
-    const stuff = props.foo ? props.foo : foo;
     this.state = {
-      dataSource: ds.cloneWithRows(stuff),
+      dataSource: ds.cloneWithRows(props.foo),
     };
   }
 
@@ -42,7 +35,7 @@ export default class DemoList extends Component {
             return (
               <View>
                 <Image
-                    style={{width: 100, height: 100}}
+                    style={{width: (.8 * window.width), height: 200}}
                     source={{uri: rowData}}
                 />
               </View>
