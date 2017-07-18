@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import {
   ListView,
   StyleSheet,
-  Text,
-  View,
   Image
 } from 'react-native';
 
@@ -24,42 +22,29 @@ export default class DemoList extends Component {
   }
 
   render() {
- const width = Dimensions.get('window').width; //full width
+    const width = Dimensions.get('window').width; //full width
     return (
       <ListView
-        style={styles.listView}
-        dataSource={this.state.dataSource}
-        enableEmptySections={true}
-        renderRow={
-          (rowData) => {
-            return (
-              <View>
-                <Image
-                    style={{width: (.8 * window.width), height: 200}}
-                    source={{uri: rowData}}
-                />
-              </View>
-            );
-          }
+      dataSource={this.state.dataSource}
+      enableEmptySections={true}
+      renderRow={
+        (rowData) => {
+          return (
+            <Image
+                style={styles.imageRow}
+                source={{uri: rowData}}
+            />
+          );
         }
+      }
       />
     );
   }
 }
 
 const styles = StyleSheet.create({
-  rowItem: {
-    fontSize: 15,
-    margin: 10,
-  },
-  listView: {
-    marginTop: 0,
-  },
-  canvas: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-  },
+  imageRow: {
+    width: .8 * window.width,
+    height: 200
+  }
 });

@@ -14,7 +14,7 @@ export default class DataScreen extends Component {
     this.state = {
       loading: true,
       message: "Loading...",
-      gifLinks: ["one", "two"],
+      gifLinks: [],
     };
   }
 
@@ -49,7 +49,7 @@ export default class DataScreen extends Component {
     if (this.state.loading) {
       return (
         <View style={styles.container}>
-          <Text style={styles.welcome}>
+          <Text>
             { this.state.message }
           </Text>
         </View>
@@ -69,16 +69,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
