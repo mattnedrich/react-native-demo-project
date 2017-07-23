@@ -1,5 +1,42 @@
 # react-native-demo-project
-Simple cross platform app written with react native. Uses cross platform tabbed navigation, and loads and displays trending gifs from Giphy
+This example app demonstrates how cross-platform natigation may be implemented in react native. It implements cross platform tabbed navigation using [react-native-navigation](https://github.com/wix/react-native-navigation). The app contains two tabs:
+
+1. An informational tab
+2. A table that displays trending gifs fron [Giphy](https://giphy.com/)
+
+All of the navigation code is shared. The `index.ios.js` and `index.android.js` files both look like this:
+
+```javascript
+import { setupApplication } from './screens/main';
+setupApplication();
+```
+
+`setupApplication` sets up simple tab navigation via
+
+```javascript
+import { Navigation } from 'react-native-navigation';
+import { registerScreens } from './index';
+registerScreens();
+
+export function setupApplication() {
+  return Navigation.startTabBasedApp({
+    tabs: [
+      {
+        label: 'Info',
+        icon: require("../img/star.png"),
+        screen: 'InfoScreen',
+        title: 'Info'
+      },
+      {
+        label: 'Trending Gifs',
+        icon: require("../img/star.png"),
+        screen: 'DataScreen',
+        title: 'Trending on Giphy'
+      }
+    ]
+  });
+}
+```
 
 # Develoment Setup Instructions
 ### Step 1. Install the react native development dependencies
