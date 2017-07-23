@@ -65,8 +65,8 @@ GIPHY_API_KEY=putyourkeyhere
 # Running The App
 Assuming you have all of the development dependencies installed, you can run the app using the following:
 
-### For iOS
+### iOS
 Run `react-native run-ios` in the project root. It will perform some compilation and then launch the app in the iOS simulator.
 
-### For Android
+### Android
 Open Android Studio, launch the AVD Manager, and start an virtual device. The, run `react-native run-android`.
