@@ -11,7 +11,7 @@ import { setupApplication } from './screens/main';
 setupApplication();
 ```
 
-`setupApplication` sets up simple tab navigation via
+`setupApplication` sets up simple tab navigation via:
 
 ```javascript
 import { Navigation } from 'react-native-navigation';
@@ -64,3 +64,6 @@ Assuming you have all of the development dependencies installed, you can run the
 
 ### For iOS
 Run `react-native run-ios` in the project root. It will perform some compilation and then launch the app in the iOS simulator.
+
+### For Android
+Open Android Studio, launch the AVD Manager, and start an virtual device. The, run `react-native run-android`.
