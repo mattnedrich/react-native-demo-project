@@ -2,10 +2,10 @@
 This example app demonstrates how cross-platform natigation may be implemented in react native. It implements cross platform tabbed navigation using [react-native-navigation](https://github.com/wix/react-native-navigation). The app contains two tabs:
 
 1. An informational tab
-2. A table that displays trending gifs fron [Giphy](https://giphy.com/)
+<img width="400" src="https://user-images.githubusercontent.com/4796480/28501972-1c2f512c-6fb6-11e7-97f2-95a6af89a7cf.png" />
 
-<img width="500" src="https://user-images.githubusercontent.com/4796480/28501972-1c2f512c-6fb6-11e7-97f2-95a6af89a7cf.png" />
-<img width="500" src="https://user-images.githubusercontent.com/4796480/28501968-0ef72e94-6fb6-11e7-852f-436de2dcf347.gif" />
+2. A table that displays trending gifs fron [Giphy](https://giphy.com/)
+<img width="400" src="https://user-images.githubusercontent.com/4796480/28501968-0ef72e94-6fb6-11e7-852f-436de2dcf347.gif" />
 
 All of the navigation code is shared. The `index.ios.js` and `index.android.js` files both look like this:
 
